@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">생산자판매\n(코리아장터)</string>
+    <string name="app_title">생산자판매(코리아장터)</string>
+    <string name="rec01">최대 30초까지 녹음이 됩니다.</string>
+    <string name="rec02">녹음된 설명이 마음에 들지 않을 때는 </string>
+    <string name="rec03">다시 녹음을 해서 전송해 주세요.</string>
+    
+    <string name="mainServerUrl">http://koreajt.com/</string>
+    
+    <string name="loginUrl">cor/m/login.php</string>
+    <string name="logoutUrl">cor/m/bbs/logout.php</string>
+    <string name="mainUrl">cor/m/</string>
+    
+    <string name="xmlUrl">xml/cor_xml.php?id=</string>
+    
+    <string name="uploadServerUrl">cor/m/product_mform_update.php</string>
+    <string name="menuUrl01">cor/m/order_list.php?new_odr=1</string>
+    <string name="menuUrl02">cor/m/order_list.php?odr_status=발송요청</string>
+    <string name="menuUrl03">cor/m/order_list2.php</string>
+    <string name="menuUrl04">cor/m/order_list3.php</string>
+    <string name="menuUrl05">cor/m/qna_board_list.php</string>
+    <string name="menuUrl06"></string>
+    <string name="menuUrl07">cor/m/bargaining_board_list.php</string>
+    <string name="menuUrlNotice">cor/m/notice_board_list.php</string>
+    
+    <string name="mainMenuUrl01">cor/m/product_list.php</string>
+	<string name="mainMenuUrl01_01_01">cor/m/product_nform.php</string>
+    <string name="mainMenuUrl01_01_02">wstep=1</string>
+    <string name="mainMenuUrl01_02">wstep=2</string>
+    <string name="mainMenuUrl01_03">wstep=3</string>
+    <string name="mainMenuUrl01_04">wstep=4</string>
+    
+    <string name="checkMainUrl01">cor/m/product_list.php</string>
+    <string name="checkMainUrl02">cor/m/order_list.php</string>
+    <string name="checkMainUrl03">cor/m/calculate_list.php</string>
+    <string name="checkMainUrl04">cor/m/push_list.php</string>
+    <string name="checkMainUrl05">cor/m/qna_board_list.php</string>
+	    
+    <string name="joinGcmSend">join_03_producer_form.php</string>
+</resources>
