@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<user> 
+	<name>홍길동</name>
+  	<level>일반</level>
+  	<new>0</new>
+  	<send>0</send>
+  	<cancle>2</cancle>
+  	<new_q>3</new_q>
+  	<total>4</total>
+</user>
+ 
+ 

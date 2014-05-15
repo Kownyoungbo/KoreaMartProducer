@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="270dp"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_category"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="5dp" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="4.6"
+                android:background="@drawable/search_bg" >
+
+                <EditText
+                    android:id="@+id/searchEdit"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="4.6"
+                    android:hint="상품명"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:textColor="#000000"
+                    android:paddingLeft="10dp"
+                    android:imeOptions="actionSearch"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/searchBtn"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/search_btn" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <ExpandableListView
+        android:id="@+id/elv_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_category"
+        android:childDivider="#404040"
+        android:divider="#000000"
+        android:dividerHeight="1dp"
+        android:groupIndicator="@null" />
+
+</LinearLayout>
