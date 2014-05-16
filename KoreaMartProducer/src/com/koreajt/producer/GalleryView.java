@@ -106,7 +106,14 @@ public class GalleryView extends Activity implements ListView.OnScrollListener,
 		switch (scrollState) {
 		case OnScrollListener.SCROLL_STATE_IDLE:
 			mScoll = false;
-			mListAdapter.notifyDataSetChanged();
+			runOnUiThread(new Runnable() {
+				
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					mListAdapter.notifyDataSetChanged();
+				}
+			});
 			break;
 		case OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
 			mScoll = true;
@@ -133,7 +140,6 @@ public class GalleryView extends Activity implements ListView.OnScrollListener,
 
 	static class ImageViewHolder {
 		ImageView ivImage;
-		CheckBox chkImage;
 	}
 
 	private class ImageAdapter extends BaseAdapter {
@@ -209,6 +215,7 @@ public class GalleryView extends Activity implements ListView.OnScrollListener,
 					}
 
 					holder.ivImage.setVisibility(VISIBLE);
+					
 					setProgressBarIndeterminateVisibility(false);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -252,6 +259,7 @@ public class GalleryView extends Activity implements ListView.OnScrollListener,
 
 	private String getImageInfo(String thumbID) {
 		String imageDataPath = null;
+		
 		String[] proj = { MediaStore.Images.Media._ID,
 				MediaStore.Images.Media.DATA,
 				MediaStore.Images.Media.DISPLAY_NAME,
