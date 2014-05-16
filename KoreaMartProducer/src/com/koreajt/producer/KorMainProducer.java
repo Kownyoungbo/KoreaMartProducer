@@ -27,6 +27,9 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -49,6 +52,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.media.ExifInterface;
 import android.media.MediaPlayer;
+import android.media.RingtoneManager;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaRecorder;
 import android.net.Uri;
@@ -59,6 +63,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.support.v4.app.NotificationCompat;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
@@ -272,7 +277,7 @@ public class KorMainProducer extends Activity {
 		android.util.Log.d("TAG", "ALLOCATION MEMORY : "
 				+ ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime()
 						.freeMemory()) / (1024 * 1024)) + "MB");
-
+		
 		mDeviceWidth = getLcdSIzeWidth();
 
 		setContentView(R.layout.main_activity);
@@ -281,8 +286,7 @@ public class KorMainProducer extends Activity {
 		mSlide_me = new SimpleSideDrawer(this);
 		mSlide_me.setLeftBehindContentView(R.layout.menu_activity);
 
-		mTextAnim = AnimationUtils.loadAnimation(KorMainProducer.this,
-				R.anim.text_alpha);
+		mTextAnim = AnimationUtils.loadAnimation(KorMainProducer.this,R.anim.text_alpha);
 		mAnimationBtn = (AnimationDrawable) getResources().getDrawable(
 				R.anim.btn_anim);
 		mCustomDialogPhoto = new CustomDialogPhoto(KorMainProducer.this);
@@ -669,6 +673,8 @@ public class KorMainProducer extends Activity {
 		Intent pickerIntent = new Intent(Intent.ACTION_PICK);
 		pickerIntent.setType("image/*");
 		startActivityForResult(pickerIntent, TagValuse.SELECT_GALLERY);
+//		Intent i = new Intent(getApplicationContext(), GalleryView.class);
+//		startActivityForResult(i, TagValuse.SELECT_GALLERY);
 	}
 
 	// 카메라 선택 했을경우 실행 되는 부분
@@ -736,6 +742,7 @@ public class KorMainProducer extends Activity {
 				if (data != null) {
 					Uri currImageURI = data.getData();
 					mFilePath = getRealPathFromURI(currImageURI);
+//					mFilePath = data.getStringExtra("key");
 					FileUpload("이미지 업로드중...", mFilePath);
 				}
 			} catch (Exception e2) {
@@ -1918,6 +1925,8 @@ public class KorMainProducer extends Activity {
 			} else if (btnId == R.id.btnSubMenu06) { // 정산알림
 				// Toast.makeText(KorMainProducer.this, "준비중 입니다",
 				// Toast.LENGTH_SHORT).show();
+				Intent testActivity = new Intent(KorMainProducer.this, GalleryView.class);
+						startActivity(testActivity);
 				gongsaActivity(1);
 				setSlidingUI();
 			} else if (btnId == R.id.btnSubMenu07) { // 흥정내역
@@ -2023,7 +2032,7 @@ public class KorMainProducer extends Activity {
 			// setHelpFlash("on");
 			// }
 			// }
-			clearApplicationCache(null);
+			mWebview.clearCache(true);
 		}
 
 		@Override

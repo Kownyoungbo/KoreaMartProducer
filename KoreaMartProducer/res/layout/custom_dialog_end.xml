@@ -3,6 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:background="#ffffff"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -10,75 +11,72 @@
         android:layout_height="wrap_content"
         android:background="#ffffff"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/icon_app_02" />
 
         <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="50dip"
-            android:gravity="left|center_vertical"
-            android:layout_marginLeft="10dp"
+            android:id="@+id/alertTitle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:gravity="left|center_vertical"
             android:text="코리아장터"
-            android:textColor="#287330"
+            android:textColor="#424557"
             android:textSize="21sp"
             android:textStyle="bold" />
+    </LinearLayout>
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:background="#CCCCCC" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#86be37" />
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
-            android:layout_marginLeft="13dp"
-            android:layout_marginRight="13dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:text="어플을 종료 하시겠습니까?"
-            android:textColor="#000000"
-            android:textSize="20sp"/>
-        
-        
-        
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="3dp"
-            android:background="#2D8537" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:gravity="left|center_vertical"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:text="어플을 종료 하시겠습니까?"
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
-        <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:orientation="horizontal" >
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal" >
 
-            <Button
-                android:id="@+id/endOk"
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:background="@drawable/rec_btn"
-                android:gravity="center"
-                android:text="예"
-                android:textColor="#000000"
-                android:textSize="15sp" />
+        <Button
+            android:id="@+id/endOk"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/dg_btn"
+            android:gravity="center"
+            android:text="예"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp" />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="fill_parent"
-                android:background="#CCCCCC" />
-
-            <Button
-                android:id="@+id/endCancle"
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:background="@drawable/rec_btn"
-                android:gravity="center"
-                android:text="아니오"
-                android:textColor="#000000"
-                android:textSize="15sp" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/endCancle"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/dg_btn"
+            android:gravity="center"
+            android:text="아니오"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp" />
     </LinearLayout>
 
 </LinearLayout>

@@ -18,21 +18,21 @@
             android:layout_weight="1"
             android:gravity="left|center_vertical"
             android:text="  동영상등록"
-            android:textColor="#287330"
+            android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <View
             android:layout_width="fill_parent"
-            android:layout_height="3dp"
-            android:background="#2D8537" />
+            android:layout_height="2dp"
+            android:background="#86be37" />
 
         <Button
             android:id="@+id/m_gal"
             android:layout_width="fill_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:background="@drawable/rec_btn"
+            android:background="@drawable/select_btn"
             android:gravity="left|center_vertical"
             android:text="   동영상 불러오기"
             android:textColor="#000000"
@@ -46,7 +46,7 @@
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@drawable/rec_btn"
+            android:background="@drawable/select_btn"
             android:gravity="left|center_vertical"
             android:text="   동영상 촬영"
             android:textColor="#000000"

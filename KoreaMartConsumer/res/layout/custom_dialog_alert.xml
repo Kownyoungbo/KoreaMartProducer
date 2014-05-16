@@ -3,6 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:background="#ffffff"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -10,51 +11,53 @@
         android:layout_height="wrap_content"
         android:background="#ffffff"
         android:gravity="center"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/alertTitle"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:gravity="left|center_vertical"
-            android:textColor="#287330"
-            android:textSize="21sp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="코리아JT"
-            android:textStyle="bold" />
+        android:orientation="horizontal" >
+		
+        	<ImageView 
+        	    android:layout_width="50dp"
+        	    android:layout_height="50dp"
+        	    android:layout_margin="10dp"
+        	    android:src="@drawable/icon_app"/>	
+        
+            <TextView
+                android:id="@+id/alertTitle"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:gravity="left|center_vertical"
+                android:text="코리아장터"
+                android:textColor="#424557"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:background="#CCCCCC" />
-	
+            android:layout_height="2dp"
+            android:background="#86be37" />
+
         <TextView
             android:id="@+id/alertMessage"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
-            android:textColor="#000000"
             android:layout_marginLeft="13dp"
             android:layout_marginRight="13dp"
-            android:paddingTop="20dp"
+            android:gravity="left|center_vertical"
             android:paddingBottom="20dp"
-            android:textSize="20sp"/>
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="3dp"
-            android:background="#2D8537" />
+            android:paddingTop="20dp"
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/ok"
             android:layout_width="fill_parent"
             android:layout_height="50dp"
-            android:background="@drawable/rec_btn"
+            android:background="@drawable/dg_btn"
             android:gravity="center"
             android:text="확인"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-    </LinearLayout>
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp" />
 
 </LinearLayout>

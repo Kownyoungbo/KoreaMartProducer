@@ -5,13 +5,21 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
-public class LRUCache<K, V>{
+/**
+ * 
+ * @author Sun Jee HUn
+ *
+ * @param <K>
+ * @param <V>
+ */
+public class LRUCache<K, V>
+{
   private static final float mHashTableLoadFactor = 0.75f;
   private LinkedHashMap<K, V> mMap;
   private int mCacheSize;
 
-  public LRUCache(int cacheSize){
+  public LRUCache(int cacheSize)
+  {
     this.mCacheSize = cacheSize;
     int hashTableCapacity = (int) Math.ceil(cacheSize / mHashTableLoadFactor) + 1;
     mMap = new LinkedHashMap<K, V>(hashTableCapacity, mHashTableLoadFactor, true)
@@ -41,11 +49,13 @@ public class LRUCache<K, V>{
     mMap.put(key, value);
   }
 
-  public synchronized int usedEntries(){
+  public synchronized int usedEntries()
+  {
     return mMap.size();
   }
 
-  public synchronized Collection<Map.Entry<K, V>> getAll(){
+  public synchronized Collection<Map.Entry<K, V>> getAll()
+  {
     return new ArrayList<Map.Entry<K, V>>(mMap.entrySet());
   }
 }
