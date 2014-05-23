@@ -5,476 +5,476 @@
     android:background="#FFFFFF"
     android:orientation="vertical" >
 
-    <FrameLayout
-        android:id="@+id/header"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp" >
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/header"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="@drawable/bg_top" >
-
-            <Button
-                android:id="@+id/BtnSlide"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:background="@drawable/menu_btn" />
+            android:layout_height="50dp" >
 
             <LinearLayout
-                android:layout_width="0dip"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="4"
+                android:background="@drawable/bg_top" >
+
+                <Button
+                    android:id="@+id/BtnSlide"
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/menu_btn" />
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="4"
+                    android:orientation="vertical" >
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dip"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dip"
+                        android:layout_weight="2.3"
+                        android:orientation="horizontal" >
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1.4" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="10"
+                            android:background="@drawable/logo" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1.4" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dip"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/BtnHome"
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_btn" />
+            </LinearLayout>
+
+            <com.koreajt.producer.util.HorizontalSlider
+                android:id="@+id/progress_horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="8dip"
+                android:progressDrawable="@drawable/progressbar_custom"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <ViewFlipper
+            android:id="@+id/viewflipper"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="8.8" >
+
+            <LinearLayout
+                android:id="@+id/inputPage01"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="5dp"
+                android:background="#FFFFFF"
                 android:orientation="vertical" >
 
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dip"
-                    android:layout_weight="1" />
-
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="0dip"
-                    android:layout_weight="2.3"
+                    android:layout_height="50dp"
                     android:orientation="horizontal" >
 
-                    <View
+                    <Button
+                        android:id="@+id/page01Process01"
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"
-                        android:layout_weight="1.4" />
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="10"
-                        android:background="@drawable/logo" />
-
-                    <View
+                    <Button
+                        android:id="@+id/page01Process02"
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"
-                        android:layout_weight="1.4" />
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/page01Process03"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/page01Process04"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1" />
                 </LinearLayout>
 
-                <View
+                <Spinner
+                    android:id="@+id/catory01"
                     android:layout_width="fill_parent"
-                    android:layout_height="0dip"
-                    android:layout_weight="1" />
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <Spinner
+                    android:id="@+id/catory02"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <Spinner
+                    android:id="@+id/catory03"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="카테고리 설명"
+                    android:textColor="#000000" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/BtnHome"
-                android:layout_width="0dip"
+            <LinearLayout
+                android:id="@+id/inputPage02"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:background="@drawable/home_btn" />
-        </LinearLayout>
-
-        <com.koreajt.producer.util.HorizontalSlider
-            android:id="@+id/progress_horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="8dip"
-            android:progressDrawable="@drawable/progressbar_custom"
-            android:visibility="gone" />
-    </FrameLayout>
-
-    <ViewFlipper
-        android:id="@+id/viewflipper"
-        android:layout_width="fill_parent"
-        android:layout_height="0dip"
-        android:layout_weight="8.8" >
-
-        <LinearLayout
-            android:id="@+id/inputPage01"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="5dp"
-            android:background="#FFFFFF"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/page01Process01"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/page01Process02"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/page01Process03"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/page01Process04"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <Spinner
-                android:id="@+id/catory01"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp" />
-
-            <Spinner
-                android:id="@+id/catory02"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp" />
-
-            <Spinner
-                android:id="@+id/catory03"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="카테고리 설명"
-                android:textColor="#000000" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/inputPage02"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="5dp"
-            android:background="#FFFFFF"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/page02Process01"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/page02Process02"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/page02Process03"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/page02Process04"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/page02Input01"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:hint="상품명 입력" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:text="상품명 설명"
-                android:textColor="#000000" />
-
-            <EditText
-                android:id="@+id/page02Input02"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:hint="가격 입력" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:text="가격 설명"
-                android:textColor="#000000" />
-
-            <Spinner
-                android:id="@+id/danwi"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp" />
-
-            <EditText
-                android:id="@+id/page02Name"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:hint="별도 단위 입력" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:text="단위 설명"
-                android:textColor="#000000" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/inputPage03"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="5dp"
-            android:background="#FFFFFF"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/page03Process01"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/page03Process02"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/page03Process03"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/page03Process04"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <ScrollView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_marginTop="5dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-
-                    <ImageView
-                        android:layout_width="320dp"
-                        android:layout_height="180dp"
-                        android:background="#000000" />
+                    android:layout_height="50dp"
+                    android:orientation="horizontal" >
 
                     <Button
-                        android:id="@+id/movieUpload"
-                        android:layout_width="fill_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="동영상 올리기" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="동영상 설명"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="녹음파일이 저장 되었습니다."
-                        android:textColor="#000000" />
+                        android:id="@+id/page02Process01"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
 
                     <Button
-                        android:id="@+id/movieUpload"
-                        android:layout_width="fill_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="녹음 올리기" />
+                        android:id="@+id/page02Process02"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="녹음 설명"
-                        android:textColor="#000000" />
+                    <Button
+                        android:id="@+id/page02Process03"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/page02Process04"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1" />
                 </LinearLayout>
-            </ScrollView>
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/inputPage04"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="5dp"
-            android:background="#FFFFFF"
-            android:orientation="vertical" >
+                <EditText
+                    android:id="@+id/page02Input01"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="상품명 입력" />
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="상품명 설명"
+                    android:textColor="#000000" />
 
-                <Button
-                    android:id="@+id/page04Process01"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
+                <EditText
+                    android:id="@+id/page02Input02"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="가격 입력" />
 
-                <Button
-                    android:id="@+id/page04Process02"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="가격 설명"
+                    android:textColor="#000000" />
 
-                <Button
-                    android:id="@+id/page04Process03"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="2.5dp"
-                    android:layout_weight="1" />
+                <Spinner
+                    android:id="@+id/danwi"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp" />
 
-                <Button
-                    android:id="@+id/page04Process04"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="2.5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1" />
+                <EditText
+                    android:id="@+id/page02Name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="별도 단위 입력" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="단위 설명"
+                    android:textColor="#000000" />
             </LinearLayout>
 
-            <ScrollView
+            <LinearLayout
+                android:id="@+id/inputPage03"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="fill_parent"
+                android:layout_marginTop="5dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-
-                    <ImageView
-                        android:layout_width="320dp"
-                        android:layout_height="180dp"
-                        android:background="#000000" />
+                    android:layout_height="50dp"
+                    android:orientation="horizontal" >
 
                     <Button
-                        android:id="@+id/movieUpload"
-                        android:layout_width="fill_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="지우기" />
+                        android:id="@+id/page03Process01"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
 
                     <Button
-                        android:id="@+id/movieUpload"
-                        android:layout_width="fill_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="사진 올리기" />
+                        android:id="@+id/page03Process02"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
 
-                    <TextView
+                    <Button
+                        android:id="@+id/page03Process03"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/page03Process04"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="사진 설명"
-                        android:textColor="#000000" />
+                        android:orientation="vertical" >
+
+                        <ImageView
+                            android:layout_width="320dp"
+                            android:layout_height="180dp"
+                            android:background="#000000" />
+
+                        <Button
+                            android:id="@+id/movieUpload"
+                            android:layout_width="fill_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="동영상 올리기" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="동영상 설명"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="녹음파일이 저장 되었습니다."
+                            android:textColor="#000000" />
+
+                        <Button
+                            android:id="@+id/movieUpload"
+                            android:layout_width="fill_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="녹음 올리기" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="녹음 설명"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/inputPage04"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="5dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/page04Process01"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/page04Process02"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/page04Process03"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/page04Process04"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1" />
                 </LinearLayout>
-            </ScrollView>
-        </LinearLayout>
-    </ViewFlipper>
 
-    <Button
-        android:id="@+id/page01Next"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp" />
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
 
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <ImageView
+                            android:layout_width="320dp"
+                            android:layout_height="180dp"
+                            android:background="#000000" />
+
+                        <Button
+                            android:id="@+id/movieUpload"
+                            android:layout_width="fill_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="지우기" />
+
+                        <Button
+                            android:id="@+id/movieUpload"
+                            android:layout_width="fill_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="사진 올리기" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="사진 설명"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </ViewFlipper>
+
+        <Button
+            android:id="@+id/page01Next"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp" />
 </LinearLayout>

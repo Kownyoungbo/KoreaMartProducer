@@ -52,9 +52,9 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.media.ExifInterface;
 import android.media.MediaPlayer;
-import android.media.RingtoneManager;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaRecorder;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -73,7 +73,6 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -267,18 +266,7 @@ public class KorMainProducer extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		android.util.Log.d("TAG", "TOTAL MEMORY : "
-				+ (Runtime.getRuntime().totalMemory() / (1024 * 1024)) + "MB");
-		android.util.Log.d("TAG", "MAX MEMORY : "
-				+ (Runtime.getRuntime().maxMemory() / (1024 * 1024)) + "MB");
-		android.util.Log.d("TAG", "FREE MEMORY : "
-				+ (Runtime.getRuntime().freeMemory() / (1024 * 1024)) + "MB");
-		android.util.Log.d("TAG", "ALLOCATION MEMORY : "
-				+ ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime()
-						.freeMemory()) / (1024 * 1024)) + "MB");
-		
-		mDeviceWidth = getLcdSIzeWidth();
+mDeviceWidth = getLcdSIzeWidth();
 
 		setContentView(R.layout.main_activity);
 
@@ -304,6 +292,7 @@ public class KorMainProducer extends Activity {
 
 		webInit();
 
+		
 		// setHelpFlash("on");
 
 		if (getIntent() != null) {
@@ -670,30 +659,32 @@ public class KorMainProducer extends Activity {
 
 	// 갤러리 선택했을 경우 실행 되는 부분
 	public void selectGallery() {
-		Intent pickerIntent = new Intent(Intent.ACTION_PICK);
-		pickerIntent.setType("image/*");
-		startActivityForResult(pickerIntent, TagValuse.SELECT_GALLERY);
-//		Intent i = new Intent(getApplicationContext(), GalleryView.class);
-//		startActivityForResult(i, TagValuse.SELECT_GALLERY);
+//		Intent pickerIntent = new Intent(Intent.ACTION_PICK);
+//		pickerIntent.setType("image/*");
+//		startActivityForResult(pickerIntent, TagValuse.SELECT_GALLERY);
+		Intent i = new Intent(getApplicationContext(), KorMartGallery.class);
+		startActivityForResult(i, TagValuse.SELECT_GALLERY);
 	}
 
 	// 카메라 선택 했을경우 실행 되는 부분
 	public void selectCamera() {
-		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-		File file = new File(Environment.getExternalStoragePublicDirectory(
-				Environment.DIRECTORY_DCIM).toString()
-				+ "/NaraJT");
-		if (!file.exists()) {
-			file.mkdir();
-		}
-		String url = "tmp_" + String.valueOf(System.currentTimeMillis())
-				+ ".jpg";
-		mImageCaptureUri = Uri.fromFile(new File(file, url));
-		intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT,
-				mImageCaptureUri);
-		intent.putExtra(android.provider.MediaStore.EXTRA_SCREEN_ORIENTATION, 2);
-		startActivityForResult(intent, TagValuse.SELECT_CAMERA);
+//		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//
+//		File file = new File(Environment.getExternalStoragePublicDirectory(
+//				Environment.DIRECTORY_DCIM).toString()
+//				+ "/NaraJT");
+//		if (!file.exists()) {
+//			file.mkdir();
+//		}
+//		String url = "tmp_" + String.valueOf(System.currentTimeMillis())
+//				+ ".jpg";
+//		mImageCaptureUri = Uri.fromFile(new File(file, url));
+//		intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT,
+//				mImageCaptureUri);
+//		intent.putExtra(android.provider.MediaStore.EXTRA_SCREEN_ORIENTATION, 2);
+//		startActivityForResult(intent, TagValuse.SELECT_CAMERA);
+		Intent i = new Intent(getApplicationContext(), KorMartCamera.class);
+		startActivityForResult(i, TagValuse.SELECT_CAMERA);
 
 	}
 
@@ -740,9 +731,9 @@ public class KorMainProducer extends Activity {
 
 			try {
 				if (data != null) {
-					Uri currImageURI = data.getData();
-					mFilePath = getRealPathFromURI(currImageURI);
-//					mFilePath = data.getStringExtra("key");
+//					Uri currImageURI = data.getData();
+//					mFilePath = getRealPathFromURI(currImageURI);
+					mFilePath = data.getStringExtra("key");
 					FileUpload("이미지 업로드중...", mFilePath);
 				}
 			} catch (Exception e2) {
@@ -753,10 +744,12 @@ public class KorMainProducer extends Activity {
 			}
 			break;
 		case TagValuse.SELECT_CAMERA:
-			if (mImageCaptureUri != null) {
+			if (data != null) {
 				try {
-					mImgUrl = mImageCaptureUri;
-					mFilePath = mImgUrl.toString().replace("file://", "");
+//					mImgUrl = mImageCaptureUri;
+//					mFilePath = mImgUrl.toString().replace("file://", "");
+					mFilePath = data.getStringExtra("key");
+					Log.e("파일경로", mFilePath);
 					FileUpload("이미지 업로드중...", mFilePath);
 				} catch (Exception e) {
 					StringWriter sw = new StringWriter();
@@ -829,13 +822,13 @@ public class KorMainProducer extends Activity {
 
 	// 파일 업로드 시작
 	public void FileUpload(String msg, final String path) {
-		mDialog = ProgressDialog.show(KorMainProducer.this, "", msg, true);
-		Log.e("파일업로드 시작", "시작");
-		new Thread(new Runnable() {
-			public void run() {
-				uploadFile(path);
-			}
-		}).start();
+//		mDialog = ProgressDialog.show(KorMainProducer.this, "", msg, true);
+//		Log.e("파일업로드 시작", "시작");
+//		new Thread(new Runnable() {
+//			public void run() {
+//				uploadFile(path);
+//			}
+//		}).start();
 	}
 
 	// 파일 이름 가지고 오는 메소드
@@ -1032,6 +1025,7 @@ public class KorMainProducer extends Activity {
 							} else {
 								mWebview.loadUrl("javascript:get_upimg('"
 										+ mPostParmNum + "','" + mPostParmIdx
+
 										+ "','" + mPostParmType + "')");
 							}
 						}
@@ -1102,6 +1096,7 @@ public class KorMainProducer extends Activity {
 			}, timeout);
 		}
 		super.onDestroy();
+		System.exit(0);
 		clearApplicationCache(null);
 
 	}
@@ -1200,32 +1195,6 @@ public class KorMainProducer extends Activity {
 				});
 
 		mCustomDialogEnd.show();
-		// AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
-		// alt_bld.setMessage("어플리케이션을 종료 하시겠습니까?")
-		// .setCancelable(false)
-		// .setPositiveButton("예", new DialogInterface.OnClickListener() {
-		// public void onClick(DialogInterface dialog, int id) {
-		//
-		// // CookieSyncManager cookieSyncManager =
-		// // CookieSyncManager
-		// // .createInstance(KorMainProducer.this);
-		// // CookieManager cookieManager = CookieManager
-		// // .getInstance();
-		// // cookieManager.setAcceptCookie(true);
-		// // cookieManager.removeSessionCookie();
-		// // cookieSyncManager.sync();
-		// finish();
-		// }
-		// })
-		// .setNegativeButton("아니오",
-		// new DialogInterface.OnClickListener() {
-		// public void onClick(DialogInterface dialog, int id) {
-		// dialog.cancel();
-		// }
-		// });
-		// AlertDialog alert = alt_bld.create();
-		// alert.setTitle(getString(R.string.app_name));
-		// alert.show();
 	}
 
 	public void setFlash(TextView tv) {
@@ -1252,6 +1221,8 @@ public class KorMainProducer extends Activity {
 			mRecLatout.setVisibility(View.GONE);
 		} else if (mHelpLayout.getVisibility() == View.VISIBLE) {
 			helpLayout(1);
+		} else if (mGongsa.getVisibility() == View.VISIBLE) {
+			mGongsa.setVisibility(View.GONE);
 		} else if (!mSlide_me.isClosed()) {
 			setSlidingUI();
 		} else if (mWebview.getUrl()
@@ -1793,6 +1764,7 @@ public class KorMainProducer extends Activity {
 			mPref.delValue(TagValuse.USERID);
 			mPref.delValue(TagValuse.USERPW);
 			mLoginFT = false;
+			
 			Log.e("logout", str);
 			mWebview.loadUrl(getString(R.string.mainServerUrl)
 					+ getString(R.string.loginUrl));
@@ -1851,6 +1823,21 @@ public class KorMainProducer extends Activity {
 
 		public void gongsa(String str) {
 			gongsaActivity(1);
+		}
+		public void callEnjoy(String str){
+			String msg = "코리아장터 회원가입을 축하합니다.";
+			NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+			NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(KorMainProducer.this).setSmallIcon(R.drawable.icon_app_02)
+					.setContentTitle(getString(R.string.app_name))
+					.setTicker(msg).setContentText(msg)
+					.setAutoCancel(true)
+					.setContentIntent(PendingIntent.getActivity(getApplicationContext(), 0, new Intent(), 0))
+					.setVibrate(new long[] { 0, 1500 });
+			Uri alarmSound = RingtoneManager
+					.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+			mBuilder.setSound(alarmSound);
+			Notification notification = mBuilder.getNotification(); 
+			mNotificationManager.notify(1, notification);
 		}
 	}
 
@@ -1925,8 +1912,10 @@ public class KorMainProducer extends Activity {
 			} else if (btnId == R.id.btnSubMenu06) { // 정산알림
 				// Toast.makeText(KorMainProducer.this, "준비중 입니다",
 				// Toast.LENGTH_SHORT).show();
-				Intent testActivity = new Intent(KorMainProducer.this, GalleryView.class);
-						startActivity(testActivity);
+//				Intent testActivity = new Intent(KorMainProducer.this, KorMartPushMessage.class);
+//						startActivity(testActivity);
+						Intent i = new Intent(getApplicationContext(), KorMartCamera.class);
+						startActivityForResult(i, TagValuse.SELECT_CAMERA);
 				gongsaActivity(1);
 				setSlidingUI();
 			} else if (btnId == R.id.btnSubMenu07) { // 흥정내역

@@ -48,7 +48,7 @@ public class Intro extends Activity {
 
 		DefultValues();
 		SetData();
-		Loading();
+		
 	}
 
 	private void DefultValues() {
@@ -82,6 +82,8 @@ public class Intro extends Activity {
 		// }
 		if (isWifiConn == false && isMobileConn == false) {
 			DialogNotInternet();
+		}else{
+			Loading();
 		}
 	}
 

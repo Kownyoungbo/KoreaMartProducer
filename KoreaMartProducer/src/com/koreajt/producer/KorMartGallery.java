@@ -31,7 +31,7 @@ import com.koreajt.producer.util.LRUCache;
 import com.koreajt.producer.util.TagValuse;
 import com.koreajt.producer.util.ThumbImageInfo;
 
-public class GalleryView extends Activity implements ListView.OnScrollListener,
+public class KorMartGallery extends Activity implements ListView.OnScrollListener,
 		GridView.OnItemClickListener {
 	boolean mScoll = false;
 	ProgressDialog mLodingProg;
@@ -106,14 +106,8 @@ public class GalleryView extends Activity implements ListView.OnScrollListener,
 		switch (scrollState) {
 		case OnScrollListener.SCROLL_STATE_IDLE:
 			mScoll = false;
-			runOnUiThread(new Runnable() {
-				
-				@Override
-				public void run() {
-					// TODO Auto-generated method stub
-					mListAdapter.notifyDataSetChanged();
-				}
-			});
+			// TODO Auto-generated method stub
+			mListAdapter.notifyDataSetChanged();
 			break;
 		case OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
 			mScoll = true;
@@ -129,8 +123,7 @@ public class GalleryView extends Activity implements ListView.OnScrollListener,
 			long arg3) {
 		ImageAdapter adapter = (ImageAdapter) arg0.getAdapter();
 		ThumbImageInfo rowData = (ThumbImageInfo) adapter.getItem(position);
-		String filePath = getImageInfo(mThumbImageInfoList.get(position)
-				.getId());
+		String filePath = getImageInfo(mThumbImageInfoList.get(position).getId());
 		Intent intent = new Intent();
 		intent.putExtra("key", filePath);
 		setResult(TagValuse.SELECT_GALLERY, intent);
@@ -191,40 +184,44 @@ public class GalleryView extends Activity implements ListView.OnScrollListener,
 
 			final ImageViewHolder holder = (ImageViewHolder) convertView
 					.getTag();
+			runOnUiThread(new Runnable() {
+				public void run() {
+					if (!mScoll) {
+						try {
+							String path = ((ThumbImageInfo) mThumbImageInfoList
+									.get(position)).getData();
+							Bitmap bmp = (Bitmap) mCache.get(path);
 
-			if (!mScoll) {
-				try {
-					String path = ((ThumbImageInfo) mThumbImageInfoList
-							.get(position)).getData();
-					Bitmap bmp = (Bitmap) mCache.get(path);
+							if (bmp != null) {
+								holder.ivImage.setImageBitmap(bmp);
+							} else {
+								BitmapFactory.Options option = new BitmapFactory.Options();
 
-					if (bmp != null) {
-						holder.ivImage.setImageBitmap(bmp);
+								if (new File(path).length() > 100000)
+									option.inSampleSize = 10;
+								else
+									option.inSampleSize = 2;
+
+								bmp = BitmapFactory.decodeFile(path, option);
+								holder.ivImage.setImageBitmap(bmp);
+
+								mCache.put(path, bmp); // 캐쉬에 넣어준다.
+							}
+
+							holder.ivImage.setVisibility(VISIBLE);
+							
+							setProgressBarIndeterminateVisibility(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+							setProgressBarIndeterminateVisibility(false);
+						}
 					} else {
-						BitmapFactory.Options option = new BitmapFactory.Options();
-
-						if (new File(path).length() > 100000)
-							option.inSampleSize = 10;
-						else
-							option.inSampleSize = 2;
-
-						bmp = BitmapFactory.decodeFile(path, option);
-						holder.ivImage.setImageBitmap(bmp);
-
-						mCache.put(path, bmp); // 캐쉬에 넣어준다.
+						setProgressBarIndeterminateVisibility(true);
+						holder.ivImage.setVisibility(INVISIBLE);
 					}
-
-					holder.ivImage.setVisibility(VISIBLE);
-					
-					setProgressBarIndeterminateVisibility(false);
-				} catch (Exception e) {
-					e.printStackTrace();
-					setProgressBarIndeterminateVisibility(false);
 				}
-			} else {
-				setProgressBarIndeterminateVisibility(true);
-				holder.ivImage.setVisibility(INVISIBLE);
-			}
+			});
+			
 
 			return convertView;
 		}
@@ -233,7 +230,7 @@ public class GalleryView extends Activity implements ListView.OnScrollListener,
 	private class DoFindImageList extends AsyncTask<String, Integer, Long> {
 		@Override
 		protected void onPreExecute() {
-			mLodingProg = ProgressDialog.show(GalleryView.this, null, "로딩중...",
+			mLodingProg = ProgressDialog.show(KorMartGallery.this, null, "로딩중...",
 					true, true);
 			super.onPreExecute();
 		}

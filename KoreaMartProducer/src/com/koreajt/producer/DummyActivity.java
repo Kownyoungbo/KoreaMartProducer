@@ -22,7 +22,8 @@ public class DummyActivity extends Activity {
 
 		Intent intent;
 		intent = getIntent();
-		String str = getString(R.string.mainServerUrl) + intent.getStringExtra("url");
+//		String str = getString(R.string.mainServerUrl) + intent.getStringExtra("url");
+		String str = intent.getStringExtra("url");
 		Log.e("pushUrl", str);
 		
 		intent = new Intent(DummyActivity.this, KorMainProducer.class);

@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.koreajt.producer.DummyActivity;
@@ -67,10 +68,10 @@ public class GcmIntentService extends IntentService {
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
 		Log.e("msg", msg);
+		Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
 
 		String[] msgArray = null;
 		try {
-
 			msgArray = msgSplit(msg);
 
 			/*
@@ -90,20 +91,30 @@ public class GcmIntentService extends IntentService {
 			PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
 					intentNotifi, PendingIntent.FLAG_ONE_SHOT);
 
-			ActivityManager am = (ActivityManager) this
-					.getSystemService(Context.ACTIVITY_SERVICE);
-			List<RunningTaskInfo> runList = am.getRunningTasks(10);
-			ComponentName name = runList.get(0).topActivity;
-			String className = name.getClassName();
-			boolean isAppRunning = false;
+//			ActivityManager am = (ActivityManager) getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
+//			List<RunningTaskInfo> runList = am.getRunningTasks(10);
+//			ComponentName name = runList.get(0).topActivity;
+//			String className = name.getClassName();
+//			boolean isAppRunning = false;
+//			if (className.contains("com.koreajt.producer")) {
+//				isAppRunning = true;
+//			}
+//			if(isAppRunning == true) {
+//				// 앱이 실행중일 경우 로직 구현
+//				Log.e("push", "onPush");
+//			} else {
+//			       // 앱이 실행중이 아닐 때 로직 구현
+//				Log.e("push", "outPush");
+//			}	
+			
+			
 
-			if (className.contains("com.koreajt.producer")) {
-				isAppRunning = true;
-			}
-
-			if (isAppRunning == true) {
+//			if (isAppRunning == true) {
 
 				// 앱이 실행중일 경우 로직 구현
+				
+				Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+				
 				NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
 						this).setSmallIcon(R.drawable.icon_app_02)
 						.setContentTitle(getString(R.string.app_name))
@@ -119,26 +130,32 @@ public class GcmIntentService extends IntentService {
 				mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 				msgArray = null;
 
-			} else {
-
-				// 앱이 실행중이 아닐 때 로직 구현
-				PushWakeLock.acquireCpuWakeLock(this);
-			}
+//			} else {
+//
+//				// 앱이 실행중이 아닐 때 로직 구현
+//				PushWakeLock.acquireCpuWakeLock(this);
+//			}
 
 		} catch (Exception e) {
-			NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-					this).setSmallIcon(R.drawable.icon_app_02)
-					.setContentTitle(getString(R.string.app_name))
-					.setTicker("ter").setContentText("ters")
-					.setAutoCancel(true)
-					.setContentIntent(PendingIntent.getActivity(this, 0, new Intent(), 0))
-					.setVibrate(new long[] { 0, 1500 });
-			Uri alarmSound = RingtoneManager
-					.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-			mBuilder.setSound(alarmSound);
-			Notification notification = mBuilder.getNotification(); 
-			mNotificationManager.notify(1, notification);
-			msgArray = null;
+			try {
+				Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+				NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+						this).setSmallIcon(R.drawable.icon_app_02)
+						.setContentTitle(getString(R.string.app_name))
+						.setTicker(msg).setContentText(msg)
+						.setAutoCancel(true)
+						.setContentIntent(PendingIntent.getActivity(this, 0, new Intent(), 0))
+						.setVibrate(new long[] { 0, 1500 });
+				Uri alarmSound = RingtoneManager
+						.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+				mBuilder.setSound(alarmSound);
+				Notification notification = mBuilder.getNotification(); 
+				mNotificationManager.notify(1, notification);
+				msgArray = null;
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 
 	}

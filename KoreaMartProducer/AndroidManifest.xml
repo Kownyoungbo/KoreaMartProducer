@@ -26,6 +26,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
     
     
     <application
@@ -83,6 +85,12 @@
             android:theme="@android:style/Theme.NoTitleBar"></activity>
         <activity android:name="GalleryView"
             android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name="KorMartCamera"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="landscape"></activity>
+        <activity android:name="KorMartPushMessage"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
