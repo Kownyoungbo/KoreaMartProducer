@@ -9,7 +9,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.koreajt.producer.KorMainProducer;
+import com.koreajt.producer.KorMartProducer;
 
 public class RegisterApp extends AsyncTask<Void, Void, String> {
 	private static final String TAG = "GCMRelated";
@@ -51,7 +51,7 @@ public class RegisterApp extends AsyncTask<Void, Void, String> {
 	private void storeRegistrationId(Context ctx, String regid) {
 		final SharedPreferences prefs = ctx
 				.getSharedPreferences(
-						KorMainProducer.class.getSimpleName(),
+						KorMartProducer.class.getSimpleName(),
 						Context.MODE_PRIVATE);
 		Log.i(TAG, "Saving regId on app version " + appVersion);
 		SharedPreferences.Editor editor = prefs.edit();
@@ -63,7 +63,7 @@ public class RegisterApp extends AsyncTask<Void, Void, String> {
 
 	private void sendRegistrationIdToBackend() {
 		URI url = null;
-		KorMainProducer.mWebview.loadUrl("javascript:callReg('" + regid + "')");
+		KorMartProducer.mWebview.loadUrl("javascript:callReg('" + regid + "')");
 		
 	}
 

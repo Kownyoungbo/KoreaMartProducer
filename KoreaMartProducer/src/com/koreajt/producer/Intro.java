@@ -88,7 +88,7 @@ public class Intro extends Activity {
 	}
 
 	private void callActivity() {
-		Intent it = new Intent(Intro.this, KorMainProducer.class);
+		Intent it = new Intent(Intro.this, KorMartProducer.class);
 		startActivity(it);
 		finish();
 	}

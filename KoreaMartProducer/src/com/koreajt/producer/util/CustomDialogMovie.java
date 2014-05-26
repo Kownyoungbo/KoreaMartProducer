@@ -1,6 +1,6 @@
 package com.koreajt.producer.util;
 
-import com.koreajt.producer.KorMainProducer;
+import com.koreajt.producer.KorMartProducer;
 import com.koreajt.producer.R;
 
 import android.app.Activity;
@@ -18,7 +18,7 @@ public class CustomDialogMovie extends Dialog {
 
 	Button mGal, mCam;
 	Context mContext;
-	KorMainProducer mKorMainProducer;
+	KorMartProducer mKorMainProducer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

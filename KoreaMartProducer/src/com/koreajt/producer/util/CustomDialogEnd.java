@@ -1,6 +1,6 @@
 package com.koreajt.producer.util;
 
-import com.koreajt.producer.KorMainProducer;
+import com.koreajt.producer.KorMartProducer;
 import com.koreajt.producer.R;
 
 import android.app.Dialog;
@@ -16,7 +16,7 @@ public class CustomDialogEnd extends Dialog{
 
 	Button mOk, mCancle;
 	Context mContext;
-	KorMainProducer mKorMainProducer;
+	KorMartProducer mKorMainProducer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

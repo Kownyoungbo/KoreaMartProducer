@@ -102,7 +102,7 @@ import com.navdrawer.SimpleSideDrawer;
  * @author 권영보 140321
  */
 
-public class KorMainProducer extends Activity {
+public class KorMartProducer extends Activity {
 	boolean menuOut = false;
 	TextView mUserLevel, mUserName, mMenuNum01, mMenuNum02, mMenuNum03,
 			mMenuNum04, mMenuNum05, mMenuNum06, mMenuNum07;
@@ -274,18 +274,18 @@ mDeviceWidth = getLcdSIzeWidth();
 		mSlide_me = new SimpleSideDrawer(this);
 		mSlide_me.setLeftBehindContentView(R.layout.menu_activity);
 
-		mTextAnim = AnimationUtils.loadAnimation(KorMainProducer.this,R.anim.text_alpha);
+		mTextAnim = AnimationUtils.loadAnimation(KorMartProducer.this,R.anim.text_alpha);
 		mAnimationBtn = (AnimationDrawable) getResources().getDrawable(
 				R.anim.btn_anim);
-		mCustomDialogPhoto = new CustomDialogPhoto(KorMainProducer.this);
-		mCustomDialogMovie = new CustomDialogMovie(KorMainProducer.this);
-		mCustomDialogAlert = new CustomDialogAlert(KorMainProducer.this);
-		mCustomDialogEnd = new CustomDialogEnd(KorMainProducer.this);
+		mCustomDialogPhoto = new CustomDialogPhoto(KorMartProducer.this);
+		mCustomDialogMovie = new CustomDialogMovie(KorMartProducer.this);
+		mCustomDialogAlert = new CustomDialogAlert(KorMartProducer.this);
+		mCustomDialogEnd = new CustomDialogEnd(KorMartProducer.this);
 
 		// google-play-service가 가능한지 체크
 		if (checkPlayServices()) {
-			mGcm = GoogleCloudMessaging.getInstance(KorMainProducer.this);
-			mRegid = getRegistrationId(KorMainProducer.this);
+			mGcm = GoogleCloudMessaging.getInstance(KorMartProducer.this);
+			mRegid = getRegistrationId(KorMartProducer.this);
 		}
 
 		setLayout();
@@ -321,7 +321,7 @@ mDeviceWidth = getLcdSIzeWidth();
 					+ getString(R.string.loginUrl));
 		}
 
-		// GcmStart();
+//		GcmStart();
 
 		mProgressBar = (HorizontalSlider) findViewById(R.id.progress_horizontal);
 		findViewById(R.id.BtnSlide).setOnClickListener(new ClickListener());
@@ -545,13 +545,13 @@ mDeviceWidth = getLcdSIzeWidth();
 	@SuppressLint("NewApi")
 	private void GcmStart() {
 		if (checkPlayServices()) {
-			mGcm = GoogleCloudMessaging.getInstance(KorMainProducer.this);
+			mGcm = GoogleCloudMessaging.getInstance(KorMartProducer.this);
 			// GCM 서버에 등록된 regId를 가지고 옴
-			mRegid = getRegistrationId(KorMainProducer.this);
+			mRegid = getRegistrationId(KorMartProducer.this);
 			// 없을경우 생성
 			if (mRegid.isEmpty()) {
-				new RegisterApp(KorMainProducer.this, mGcm,
-						getAppVersion(KorMainProducer.this)).execute();
+				new RegisterApp(KorMartProducer.this, mGcm,
+						getAppVersion(KorMartProducer.this)).execute();
 				Log.i("GcmStart", "RegId create");
 			} else {
 				mWebview.loadUrl("javascript:callReg('" + mRegid + "')");
@@ -576,7 +576,7 @@ mDeviceWidth = getLcdSIzeWidth();
 		}
 		int registeredVersion = prefs.getInt(TagValuse.PROPERTY_APP_VERSION,
 				Integer.MIN_VALUE);
-		int currentVersion = getAppVersion(KorMainProducer.this);
+		int currentVersion = getAppVersion(KorMartProducer.this);
 		if (registeredVersion != currentVersion) {
 			Log.e(TagValuse.TAG, "App version changed.");
 			return "";
@@ -585,7 +585,7 @@ mDeviceWidth = getLcdSIzeWidth();
 	}
 
 	private SharedPreferences getGCMPreferences(Context context) {
-		return getSharedPreferences(KorMainProducer.class.getSimpleName(),
+		return getSharedPreferences(KorMartProducer.class.getSimpleName(),
 				Context.MODE_PRIVATE);
 	}
 
@@ -739,7 +739,7 @@ mDeviceWidth = getLcdSIzeWidth();
 			} catch (Exception e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
-				Toast.makeText(KorMainProducer.this, "갤러리를 이용하여 증록하여 주세요",
+				Toast.makeText(KorMartProducer.this, "갤러리를 이용하여 증록하여 주세요",
 						Toast.LENGTH_LONG).show();
 			}
 			break;
@@ -770,7 +770,7 @@ mDeviceWidth = getLcdSIzeWidth();
 					if (fileSigeM <= 20.0) {
 						FileUpload("동영상 업로드중...", mFilePath);
 					} else {
-						Toast.makeText(KorMainProducer.this,
+						Toast.makeText(KorMartProducer.this,
 								"20M가 넘는 동영상 파일은 등록하실수 없습니다.",
 								Toast.LENGTH_LONG).show();
 					}
@@ -778,7 +778,7 @@ mDeviceWidth = getLcdSIzeWidth();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-				Toast.makeText(KorMainProducer.this, "갤러리를 이용하여 증록하여 주세요",
+				Toast.makeText(KorMartProducer.this, "갤러리를 이용하여 증록하여 주세요",
 						Toast.LENGTH_LONG).show();
 			}
 			break;
@@ -978,7 +978,7 @@ mDeviceWidth = getLcdSIzeWidth();
 							public void run() {
 								// messageText.setText(msg);
 								Log.e("파일업로드", "업로드완료");
-								Toast.makeText(KorMainProducer.this,
+								Toast.makeText(KorMartProducer.this,
 										"파일 업로드가 완료 되었습니다.", Toast.LENGTH_SHORT)
 										.show();
 
@@ -1000,7 +1000,7 @@ mDeviceWidth = getLcdSIzeWidth();
 
 					runOnUiThread(new Runnable() {
 						public void run() {
-							Toast.makeText(KorMainProducer.this,
+							Toast.makeText(KorMartProducer.this,
 									"MalformedURLException", Toast.LENGTH_SHORT)
 									.show();
 						}
@@ -1037,7 +1037,7 @@ mDeviceWidth = getLcdSIzeWidth();
 			runOnUiThread(new Runnable() {
 				public void run() {
 					mDialog.dismiss();
-					Toast.makeText(KorMainProducer.this,
+					Toast.makeText(KorMartProducer.this,
 							"파일 전송을 실패 하였습니다.\n갤러리를 이용해 주세요",
 							Toast.LENGTH_SHORT).show();
 				}
@@ -1103,11 +1103,11 @@ mDeviceWidth = getLcdSIzeWidth();
 
 	private class WebViewChromClinetClass extends WebChromeClient {
 
-		final Activity activity = KorMainProducer.this;
+		final Activity activity = KorMartProducer.this;
 
 		public boolean onJsAlert(WebView view, String url, String message,
 				final android.webkit.JsResult result) {
-			mCustomDialogAlert = new CustomDialogAlert(KorMainProducer.this,
+			mCustomDialogAlert = new CustomDialogAlert(KorMartProducer.this,
 					new OnClickListener() {
 
 						@Override
@@ -1175,7 +1175,7 @@ mDeviceWidth = getLcdSIzeWidth();
 	}
 
 	private void EndDialog() {
-		mCustomDialogEnd = new CustomDialogEnd(KorMainProducer.this,
+		mCustomDialogEnd = new CustomDialogEnd(KorMartProducer.this,
 				new OnClickListener() {
 
 					@Override
@@ -1282,7 +1282,7 @@ mDeviceWidth = getLcdSIzeWidth();
 
 			startActivity(intent);
 		} else {
-			Toast.makeText(KorMainProducer.this,
+			Toast.makeText(KorMartProducer.this,
 					"코리아JT어플리케이션이 없습니다\n마켓으로 이동 합니다.", Toast.LENGTH_SHORT)
 					.show();
 			Intent marketLaunch = new Intent(Intent.ACTION_VIEW);
@@ -1576,7 +1576,7 @@ mDeviceWidth = getLcdSIzeWidth();
 					mRecLatout.setVisibility(View.GONE);
 
 				} else {
-					Toast.makeText(KorMainProducer.this, "녹음된 파일이 없습니다",
+					Toast.makeText(KorMartProducer.this, "녹음된 파일이 없습니다",
 							Toast.LENGTH_SHORT).show();
 				}
 				break;
@@ -1719,7 +1719,7 @@ mDeviceWidth = getLcdSIzeWidth();
 		// 갤러리 호출
 		public void callPhoto(String fname, String idx, String type, String num) {
 			// TODO Auto-generated method stub
-			mCustomDialogPhoto = new CustomDialogPhoto(KorMainProducer.this,
+			mCustomDialogPhoto = new CustomDialogPhoto(KorMartProducer.this,
 					galClickListener, camClickListener);
 			mPostParmFname = fname;
 			mPostParmIdx = idx;
@@ -1729,7 +1729,7 @@ mDeviceWidth = getLcdSIzeWidth();
 		}
 
 		public void callMovie(String fname, String idx, String type, String num) {
-			mCustomDialogMovie = new CustomDialogMovie(KorMainProducer.this,
+			mCustomDialogMovie = new CustomDialogMovie(KorMartProducer.this,
 					galClickListener, camClickListener);
 			mPostParmFname = fname;
 			mPostParmIdx = idx;
@@ -1806,7 +1806,7 @@ mDeviceWidth = getLcdSIzeWidth();
 		}
 
 		public void callEmail(String str) {
-			AccountManager mgr = AccountManager.get(KorMainProducer.this);
+			AccountManager mgr = AccountManager.get(KorMartProducer.this);
 			Account[] accts = mgr.getAccounts();
 			final int count = accts.length;
 			Account acct = null;
@@ -1827,7 +1827,7 @@ mDeviceWidth = getLcdSIzeWidth();
 		public void callEnjoy(String str){
 			String msg = "코리아장터 회원가입을 축하합니다.";
 			NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-			NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(KorMainProducer.this).setSmallIcon(R.drawable.icon_app_02)
+			NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(KorMartProducer.this).setSmallIcon(R.drawable.icon_app_02)
 					.setContentTitle(getString(R.string.app_name))
 					.setTicker(msg).setContentText(msg)
 					.setAutoCancel(true)
@@ -1854,7 +1854,7 @@ mDeviceWidth = getLcdSIzeWidth();
 					mMenuLoding.setVisibility(View.VISIBLE);
 					setSlidingUI();
 				} else {
-					Toast.makeText(KorMainProducer.this,
+					Toast.makeText(KorMartProducer.this,
 							"로그인을 하셔야 개인메뉴를 보실수 있습니다.", Toast.LENGTH_SHORT)
 							.show();
 				}
@@ -1881,41 +1881,32 @@ mDeviceWidth = getLcdSIzeWidth();
 					mWebview.loadUrl(getString(R.string.mainServerUrl)
 							+ getString(R.string.mainUrl));
 				}
-				// Intent testActivity = new Intent(KorMainProducer.this,
-				// TestInputActivity.class);
-				// startActivity(testActivity);
 			} else if (btnId == R.id.btnSubMenu01) { // 신규주문
 				mWebview.loadUrl(getString(R.string.mainServerUrl)
 						+ getString(R.string.menuUrl01));
-				// gongsaActivity(1);
 				setSlidingUI();
 			} else if (btnId == R.id.btnSubMenu02) { // 발송요청
 				mWebview.loadUrl(getString(R.string.mainServerUrl)
 						+ getString(R.string.menuUrl02));
-				// gongsaActivity(1);
 				setSlidingUI();
 			} else if (btnId == R.id.btnSubMenu03) { // 반품/교환/환불요청
 				mWebview.loadUrl(getString(R.string.mainServerUrl)
 						+ getString(R.string.menuUrl03));
-				// gongsaActivity(1);
 				setSlidingUI();
 			} else if (btnId == R.id.btnSubMenu04) { // 취소요청
 				mWebview.loadUrl(getString(R.string.mainServerUrl)
 						+ getString(R.string.menuUrl04));
-				// gongsaActivity(1);
 				setSlidingUI();
 			} else if (btnId == R.id.btnSubMenu05) { // 신규상품문의
 				mWebview.loadUrl(getString(R.string.mainServerUrl)
 						+ getString(R.string.menuUrl05));
-				// gongsaActivity(1);
 				setSlidingUI();
 			} else if (btnId == R.id.btnSubMenu06) { // 정산알림
 				// Toast.makeText(KorMainProducer.this, "준비중 입니다",
 				// Toast.LENGTH_SHORT).show();
 //				Intent testActivity = new Intent(KorMainProducer.this, KorMartPushMessage.class);
 //						startActivity(testActivity);
-						Intent i = new Intent(getApplicationContext(), KorMartCamera.class);
-						startActivityForResult(i, TagValuse.SELECT_CAMERA);
+//				startActivity(in);
 				gongsaActivity(1);
 				setSlidingUI();
 			} else if (btnId == R.id.btnSubMenu07) { // 흥정내역

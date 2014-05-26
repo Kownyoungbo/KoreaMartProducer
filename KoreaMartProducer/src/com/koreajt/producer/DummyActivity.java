@@ -26,7 +26,7 @@ public class DummyActivity extends Activity {
 		String str = intent.getStringExtra("url");
 		Log.e("pushUrl", str);
 		
-		intent = new Intent(DummyActivity.this, KorMainProducer.class);
+		intent = new Intent(DummyActivity.this, KorMartProducer.class);
 		pref.put(TagValuse.NOTIFIURL, str);
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TOP 
